@@ -89,13 +89,15 @@
                 </a>
             </li><!-- End Dashboard Nav -->
 
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/admin/users') }}">
-                    <i class="fa-solid fa-user"></i>
-                    <span>User</span>
-                </a>
-            </li>
+           @if (Auth()->user()->roles[0]->id==2)
+           <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ url('/admin/users') }}">
+                <i class="fa-solid fa-user"></i>
+                <span>User</span>
+            </a>
+        </li>
+           @endif
+           
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ route('blog') }}">
