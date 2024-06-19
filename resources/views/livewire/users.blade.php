@@ -24,7 +24,7 @@
                 <td>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editUser"
                         wire:click="editUser({{$user->id}})" class="btn btn-primary btn-sm">Edit</button>
-                    <button wire:click="deleteUser({{$user->id}})" class="btn btn-danger">Delete</button>
+                    <button wire:click="deleteUser({{$user->id}})" class="btn btn-danger"  onclick="return confirm('Are you sure you want to delete?')">Delete</button>
                 </td>
             </tr>
             @endforeach
