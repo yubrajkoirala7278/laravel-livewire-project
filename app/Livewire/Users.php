@@ -88,6 +88,7 @@ class Users extends Component
                 $this->updateMode = false;
                 session()->flash('success', 'User updated successfully!');
                 $this->resetFields();
+                $this->dispatch('userUpdate');
             }
         } catch (\Exception $ex) {
             session()->flash('success', 'Something goes wrong!!');

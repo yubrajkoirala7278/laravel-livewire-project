@@ -183,6 +183,9 @@
         Livewire.on('userStore', () => {
             $('#createUser').modal('hide');
         });
+        Livewire.on('userUpdate', () => {
+            $('#editUser').modal('hide');
+        });
     });
     </script>
 
