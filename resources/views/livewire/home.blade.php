@@ -42,109 +42,109 @@
 </head>
 
 <body>
+    <div>
+        <!-- ======= Header ======= -->
+        <header id="header" class="header fixed-top d-flex align-items-center">
 
-    <!-- ======= Header ======= -->
-    <header id="header" class="header fixed-top d-flex align-items-center">
-
-        <div class="d-flex align-items-center justify-content-between">
-            <a href="#" class="logo d-flex align-items-center">
-                <img src="{{ asset('admin/assets/img/logo.png') }}" alt="">
-                <span class="d-none d-lg-block">NiceAdmin</span>
-            </a>
-            <i class="bi bi-list toggle-sidebar-btn"></i>
-        </div><!-- End Logo -->
-
-        <div class="search-bar">
-            <form class="search-form d-flex align-items-center" method="POST" action="#">
-                <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-            </form>
-        </div><!-- End Search Bar -->
-
-        <nav class="header-nav ms-auto">
-            <ul class="d-flex align-items-center">
-                <li class="nav-item dropdown pe-3">
-
-                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#">
-                        <img src="{{ asset('admin/assets/img/profile-img.jpg') }}" alt="Profile"
-                            class="rounded-circle">
-                        <span class="d-none d-md-block ps-2">{{ Auth::user()->name }}</span>
-                    </a><!-- End Profile Iamge Icon -->
-                </li><!-- End Profile Nav -->
-
-            </ul>
-        </nav><!-- End Icons Navigation -->
-
-    </header><!-- End Header -->
-
-    <!-- ======= Sidebar ======= -->
-    <aside id="sidebar" class="sidebar">
-
-        <ul class="sidebar-nav" id="sidebar-nav">
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('admin.home') }}">
-                    <i class="fa-solid fa-gauge-high"></i>
-                    <span>Dashboard</span>
+            <div class="d-flex align-items-center justify-content-between">
+                <a href="#" class="logo d-flex align-items-center">
+                    <img src="{{ asset('admin/assets/img/logo.png') }}" alt="">
+                    <span class="d-none d-lg-block">NiceAdmin</span>
                 </a>
-            </li><!-- End Dashboard Nav -->
+                <i class="bi bi-list toggle-sidebar-btn"></i>
+            </div><!-- End Logo -->
 
-           @if (Auth()->user()->roles[0]->id==2)
-           <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ url('/admin/users') }}">
-                <i class="fa-solid fa-user"></i>
-                <span>User</span>
-            </a>
-        </li>
-           @endif
-           
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('blog') }}">
-                    <i class="fa-solid fa-blog"></i>
-                    <span>Blog</span>
-                </a>
-            </li>
-
-
-            <li class="nav-item ">
-                <a class="nav-link collapsed" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                      document.getElementById('logout-form').submit();">
-                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                    <span>{{ __('Logout') }}</span>
-                </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
+            <div class="search-bar">
+                <form class="search-form d-flex align-items-center" method="POST" action="#">
+                    <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+                    <button type="submit" title="Search"><i class="bi bi-search"></i></button>
                 </form>
-            </li><!-- End Logout Page Nav -->
-        </ul>
+            </div><!-- End Search Bar -->
 
-    </aside><!-- End Sidebar-->
+            <nav class="header-nav ms-auto">
+                <ul class="d-flex align-items-center">
+                    <li class="nav-item dropdown pe-3">
 
-    <main id="main" class="main">
+                        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#">
+                            <img src="{{ asset('admin/assets/img/profile-img.jpg') }}" alt="Profile"
+                                class="rounded-circle">
+                            <span class="d-none d-md-block ps-2">{{ Auth::user()->name }}</span>
+                        </a><!-- End Profile Iamge Icon -->
+                    </li><!-- End Profile Nav -->
 
-        <div class="pagetitle">
-            <h1>Dashboard</h1>
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                    <li class="breadcrumb-item active">Home</li>
-                </ol>
-            </nav>
-        </div><!-- End Page Title -->
+                </ul>
+            </nav><!-- End Icons Navigation -->
 
-        <section class="section profile">
-            @livewire('users')
-        </section>
+        </header><!-- End Header -->
 
-    </main><!-- End #main -->
+        <!-- ======= Sidebar ======= -->
+        <aside id="sidebar" class="sidebar">
 
-    {{-- scroll to top button --}}
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+            <ul class="sidebar-nav" id="sidebar-nav">
 
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="{{ route('admin.home') }}">
+                        <i class="fa-solid fa-gauge-high"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li><!-- End Dashboard Nav -->
+
+                @if (Auth()->user()->roles[0]->id==2)
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="{{ url('/admin/users') }}">
+                        <i class="fa-solid fa-user"></i>
+                        <span>User</span>
+                    </a>
+                </li>
+                @endif
+
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="{{ route('blog') }}">
+                        <i class="fa-solid fa-blog"></i>
+                        <span>Blog</span>
+                    </a>
+                </li>
+
+
+                <li class="nav-item ">
+                    <a class="nav-link collapsed" href="{{ route('logout') }}" onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <span>{{ __('Logout') }}</span>
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </li><!-- End Logout Page Nav -->
+            </ul>
+
+        </aside><!-- End Sidebar-->
+
+        <main id="main" class="main">
+
+            <div class="pagetitle">
+                <h1>Dashboard</h1>
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                        <li class="breadcrumb-item active">Home</li>
+                    </ol>
+                </nav>
+            </div><!-- End Page Title -->
+
+            <section class="section profile">
+                @livewire('users')
+            </section>
+
+        </main><!-- End #main -->
+
+        {{-- scroll to top button --}}
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+                class="bi bi-arrow-up-short"></i></a>
+
+    </div>
     <!-- Bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
@@ -158,8 +158,8 @@
 
     {{-- display success message --}}
     @if (session('success'))
-        <script>
-            Toastify({
+    <script>
+        Toastify({
                 text: {!! json_encode(session('success')) !!},
                 duration: 3000,
                 newWindow: true,
@@ -170,7 +170,7 @@
                 backgroundColor: "green",
                 stopOnFocus: true,
             }).showToast();
-        </script>
+    </script>
     @endif
 
     <!-- custom js -->
@@ -179,12 +179,12 @@
 
     @livewireScripts
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function () {
         Livewire.on('userStore', () => {
             $('#createUser').modal('hide');
         });
     });
-</script>
+    </script>
 
 </body>
 
