@@ -28,9 +28,18 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
    crossorigin="anonymous" referrerpolicy="no-referrer" />
+   {{-- csrf token --}}
+   <meta name="csrf-token" content="{{ csrf_token() }}" />
+   {{-- jquery cdn --}}
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   {{-- data table css link --}}
+   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+
 
   <!-- Customm css -->
   <link href="{{asset('admin/assets/css/style.css')}}" rel="stylesheet">
+  {{-- toastify --}}
+  @toastifyCss
 </head>
 
 <body>
@@ -82,14 +91,14 @@
 
 
       <li class="nav-item">
-        <a class="nav-link collapsed"  href="#" >
+        <a class="nav-link collapsed"  href="{{url('/admin/users')}}" >
           <i class="fa-solid fa-user"></i>
           <span>User</span>
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed"  href="#" >
+        <a class="nav-link collapsed"  href="{{route('blog')}}" >
           <i class="fa-solid fa-blog"></i>
           <span>Blog</span>
         </a>
@@ -161,6 +170,11 @@
 
   <!-- custom js -->
   <script src="{{asset('admin/assets/js/main.js')}}"></script>
+
+  {{-- data table cdn --}}
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  {{-- toastify --}}
+  @toastifyJs
 
 </body>
 
